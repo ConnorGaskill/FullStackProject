@@ -37,38 +37,56 @@ namespace BlogFullStack.Server.Data
 
                     BusinessAddress = "308 Negra Arroyo Lane, Albuquerque, New Mexico"
 
-                });
+                }
+            );
 
             modelBuilder.Entity<DynamicContent>().HasData(
 
-            new DynamicContent
-            {
-                Name = "Test",
+                new DynamicContent
+                {
+                    Name = "Test",
 
-                Body = "This is a post",
+                    Body = "This is a post",
 
-                Author = "Arial Hughman",
+                    Author = "Arial Hughman",
 
-                CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Now,
 
-                LastModifiedDate = DateTime.Now,
+                    LastModifiedDate = DateTime.Now,
 
-                Content = "Really cool stuff"
+                    Content = "Really cool stuff"
 
-            });
+                }
+            );
 
             modelBuilder.Entity<FeedbackData>().HasData(
                 new FeedbackData
                 {
                     FeedBackID = 1,
 
-                    Feedback = "I like toast"
+                    Feedback = "I like toast",
 
-
+                    FeedbackEmail = "RealGuy@RealMail.io"
 
                 }
 
-                );
+            );
+            modelBuilder.Entity<StaticContent>().HasData(
+                new StaticContent
+                {
+                    StaticContentID = 1,
+
+                    Name = "About",
+
+                    CreatedDate = new DateTime(2024, 2, 1),
+
+                    LastModifiedDate = DateTime.Now,
+
+                    Content = "We make stuff"
+
+                }
+
+            );
         }
     }
 }
