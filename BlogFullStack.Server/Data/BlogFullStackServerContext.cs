@@ -37,7 +37,21 @@ namespace BlogFullStack.Server.Data
 
                     BusinessAddress = "308 Negra Arroyo Lane, Albuquerque, New Mexico"
 
+                },
+                new BusinessContactDetails
+                {
+                    BusinessContactID = 2,
+
+                    BusinessContactPhoneNumber = "(360) 123-4567",
+
+                    BusinessContactEmail = "Wingdings@Wingmail.io",
+
+                    BusinessName = "Wingdings inc",
+
+                    BusinessAddress = "600 Centralia College Blvd, Centralia, WA 98531"
+
                 }
+            
             );
 
             modelBuilder.Entity<DynamicContent>().HasData(
@@ -56,6 +70,21 @@ namespace BlogFullStack.Server.Data
 
                     Content = "Really cool stuff"
 
+                },
+                new DynamicContent
+                {
+                    Name = "Test2",
+
+                    Body = "Do not dawdle. I lust for my revenge.",
+
+                    Author = "SHODAN",
+
+                    CreatedDate = new DateTime(1999, 8, 11),
+
+                    LastModifiedDate = DateTime.Now,
+
+                    Content = "Really neat stuff"
+
                 }
             );
 
@@ -67,6 +96,15 @@ namespace BlogFullStack.Server.Data
                     Feedback = "I like toast",
 
                     FeedbackEmail = "RealGuy@RealMail.io"
+
+                },
+                new FeedbackData
+                {
+                    FeedBackID = 2,
+
+                    Feedback = "I'm somewhat partial to toast",
+
+                    FeedbackEmail = "MildlyInterestingGuy@RealMail.io"
 
                 }
 
@@ -83,6 +121,19 @@ namespace BlogFullStack.Server.Data
                     LastModifiedDate = DateTime.Now,
 
                     Content = "We make stuff"
+
+                },
+                new StaticContent
+                {
+                    StaticContentID = 2,
+
+                    Name = "Help",
+
+                    CreatedDate = new DateTime(2024, 2, 1),
+
+                    LastModifiedDate = DateTime.Now,
+
+                    Content = "Everything you need to know"
 
                 }
 
