@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Authorization;
+using System.ComponentModel.DataAnnotations;
 
 namespace BlogFullStack.Server.Models
 {
+    [Authorize]
     public class DynamicContent
     {
         [Key]

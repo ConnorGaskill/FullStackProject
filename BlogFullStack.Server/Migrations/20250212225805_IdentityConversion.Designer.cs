@@ -4,6 +4,7 @@ using BlogFullStack.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogFullStack.Server.Migrations
 {
     [DbContext(typeof(BlogFullStackServerContext))]
-    partial class BlogFullStackServerContextModelSnapshot : ModelSnapshot
+    [Migration("20250212225805_IdentityConversion")]
+    partial class IdentityConversion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

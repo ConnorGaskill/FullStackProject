@@ -13,6 +13,8 @@ namespace BlogFullStack.Server.Models
 
         public DateTime LastModifiedDate { get; set; }
 
+        public String Author { get; set; }
+
         //Ambiguous, fix later
         public string Content { get; set; }
     }

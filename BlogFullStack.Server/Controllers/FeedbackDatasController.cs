@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BlogFullStack.Server.Data;
 using BlogFullStack.Server.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlogFullStack.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class FeedbackDatasController : ControllerBase
     {
         private readonly BlogFullStackServerContext _context;
@@ -23,6 +25,7 @@ namespace BlogFullStack.Server.Controllers
 
         // GET: api/FeedbackDatas
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<FeedbackData>>> GetFeedbackData()
         {
             return await _context.FeedbackData.ToListAsync();
@@ -30,6 +33,7 @@ namespace BlogFullStack.Server.Controllers
 
         // GET: api/FeedbackDatas/5
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<FeedbackData>> GetFeedbackData(int id)
         {
             var feedbackData = await _context.FeedbackData.FindAsync(id);

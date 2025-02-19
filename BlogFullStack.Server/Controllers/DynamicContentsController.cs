@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BlogFullStack.Server.Data;
 using BlogFullStack.Server.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlogFullStack.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class DynamicContentsController : ControllerBase
     {
         private readonly BlogFullStackServerContext _context;
@@ -23,6 +25,7 @@ namespace BlogFullStack.Server.Controllers
 
         // GET: api/DynamicContents
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<DynamicContent>>> GetDynamicContent()
         {
             return await _context.DynamicContent.ToListAsync();
@@ -30,6 +33,7 @@ namespace BlogFullStack.Server.Controllers
 
         // GET: api/DynamicContents/5
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<DynamicContent>> GetDynamicContent(int id)
         {
             var dynamicContent = await _context.DynamicContent.FindAsync(id);

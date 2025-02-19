@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using BlogFullStack.Server.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using BlogFullStack.Server.Areas.Identity.Data;
 
 namespace BlogFullStack.Server.Data
 {
-    public class BlogFullStackServerContext : DbContext
+    public class BlogFullStackServerContext : IdentityDbContext<BlogUser>
     {
         public BlogFullStackServerContext (DbContextOptions<BlogFullStackServerContext> options)
             : base(options)
@@ -58,21 +60,25 @@ namespace BlogFullStack.Server.Data
 
                 new DynamicContent
                 {
+                    DynamicContentID = 1,
+
                     Name = "Test",
 
                     Body = "This is a post",
 
                     Author = "Arial Hughman",
 
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(1999, 8, 11),
 
-                    LastModifiedDate = DateTime.Now,
+                    LastModifiedDate = new DateTime(1999, 8, 11),
 
                     Content = "Really cool stuff"
 
                 },
                 new DynamicContent
                 {
+                    DynamicContentID = 2,
+
                     Name = "Test2",
 
                     Body = "Do not dawdle. I lust for my revenge.",
@@ -81,7 +87,7 @@ namespace BlogFullStack.Server.Data
 
                     CreatedDate = new DateTime(1999, 8, 11),
 
-                    LastModifiedDate = DateTime.Now,
+                    LastModifiedDate = new DateTime(1999, 8, 11),
 
                     Content = "Really neat stuff"
 
@@ -112,26 +118,30 @@ namespace BlogFullStack.Server.Data
             modelBuilder.Entity<StaticContent>().HasData(
                 new StaticContent
                 {
+                    Author = "Artyom",
+
                     StaticContentID = 1,
 
                     Name = "About",
 
                     CreatedDate = new DateTime(2024, 2, 1),
 
-                    LastModifiedDate = DateTime.Now,
+                    LastModifiedDate = new DateTime(2024, 2, 1),
 
                     Content = "We make stuff"
 
                 },
                 new StaticContent
                 {
+                    Author = "Greg",
+
                     StaticContentID = 2,
 
                     Name = "Help",
 
                     CreatedDate = new DateTime(2024, 2, 1),
 
-                    LastModifiedDate = DateTime.Now,
+                    LastModifiedDate = new DateTime(2024, 2, 1),
 
                     Content = "Everything you need to know"
 
